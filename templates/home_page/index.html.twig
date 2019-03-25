@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Accueil!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+{% endblock %}
 {% form_theme form _self %}
 {% block body %}
 <!-- start banner Area -->
@@ -30,17 +33,19 @@
                         <div class="formfield-select--container">
                             {{ form_widget(form.parking) }}
                         </div>
-                        <div class="booking_parking">{{ form_label(form.startDate) }}</div>
-                        								
-                        {{ form_widget(form.startDate) }}
-                        <div class="text-danger">
-                            {{ form_errors(form.startDate) }}
-                        </div>
-                        <div class="booking_parking">{{ form_label(form.endDate) }}</div>
-                        {{ form_widget(form.endDate) }}
-                        <div class="text-danger">
-                            {{ form_errors(form.endDate) }}
-                        </div>
+                        <div class="form-control">
+                            {{ form_widget(form.startDate) }}
+                            <div class="text-danger">
+                                {{ form_errors(form.startDate) }}
+                            </div>
+                        </div>								
+                        
+                        <div class="form-control">
+                            {{ form_widget(form.endDate) }}
+                            <div class="text-danger">
+                                {{ form_errors(form.endDate) }}
+                            </div>
+                        </div>	
                         <div class="form-control">
                             <div class="form-check">
                                 {{ form_widget(form.advantages)}}
@@ -355,6 +360,9 @@
 {% endblock %}
 
 {% block javascripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+<script src="bootstrap-datepicker.FR.js" charset="UTF-8"></script>
 <script>
 $(document).ready(function(){
     for (var i = 0; i < 6; i++) {
@@ -364,6 +372,21 @@ $(document).ready(function(){
         input.appendTo(balise);
         label.appendTo(balise);
     }
+    $.fn.datepicker.dates['fr'] = {
+        days: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        daysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        daysMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+        months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        today: "Aujourd'hui",
+        format: 'dd/mm/yyyy',
+    };
+    $('#booking_startDate, #booking_endDate').datepicker({
+        format: 'dd/mm/yyyy',
+        language: 'fr',
+        //bloquer la réservation avant la date d'aujourdhui
+        startDate: new Date(),
+    });
 
 });
 </script>

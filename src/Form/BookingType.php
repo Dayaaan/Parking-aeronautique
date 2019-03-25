@@ -11,6 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -21,19 +22,11 @@ class BookingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('startDate', DateTimeType::class, [
-                'label' => "Arrivé à :",
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-                'date_widget' => 'single_text',
-                'time_widget' => 'single_text',
+            ->add('startDate', TextType::class, [
+                'attr' => ['placeholder' => "Date d'arrivée"],
             ])
-            ->add('endDate', DateTimeType::class, [
-                'label' => "Retour à :",
-                'attr' => ['class' => 'form-control' ],
-                'date_widget' => 'single_text',
-                'time_widget' => 'single_text',
+            ->add('endDate', TextType::class, [
+                'attr' => ['placeholder' => "Date d'arrivée"],
             ])
             ->add('parking',null, [
                 'placeholder' => false,

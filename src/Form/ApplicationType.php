@@ -1,7 +1,8 @@
 <?php 
 namespace App\Form;
+use App\Entity\Advantage;
 use Symfony\Component\Form\AbstractType;
-//ApplicationType permet d'alléger le code de nos formulaires registrationType et annonceType
+//ApplicationType permet d'alléger le code de nos formulaires 
 class ApplicationType extends AbstractType {
     /**
      * Permet d'avoir la configuration de base d'un champ

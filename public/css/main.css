@@ -814,15 +814,10 @@ td, th {
 #booking_advantages input {
   margin-right: 1em;
 }
-#booking_endDate_date, #booking_startDate_date {
-  border: none;
-}
-#booking_startDate_time, #booking_endDate_time {
-  margin-left: 1em;
-  border: none;
-}
+
 #booking_startDate, #booking_endDate {
-  font-size: 1.2em;
+  font-size: 1em;
+  border: none;
 }
 
 .custom-select {
@@ -861,12 +856,11 @@ td, th {
 	*/
 	
 	height: auto;
-	border: 0; 
-  padding-left: 0.675rem;
-  padding-right: 0.675rem;
+  border: 0; 
+  padding: .5rem .675rem !important;
   border-color: #eee;
   border-radius: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 13px;
   font-weight: 300;
 
