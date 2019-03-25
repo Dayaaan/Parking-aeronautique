@@ -357,42 +357,13 @@
 {% block javascripts %}
 <script>
 $(document).ready(function(){
-
-	var input = $('#booking_advantages_1');
-    var label = $("label[for=booking_advantages_1]");
-	var balise = $('<div class="form-check"></div>').prependTo(input.parent());
-	input.appendTo(balise);
-    label.appendTo(balise);
-
-    var input2 = $('#booking_advantages_2');
-    var label2 = $("label[for=booking_advantages_2]");
-	var balise2 = $('<div class="form-check"></div>').prependTo(input2.parent());
-	input2.appendTo(balise2);
-    label2.appendTo(balise2);
-
-    var input3 = $('#booking_advantages_3');
-    var label3 = $("label[for=booking_advantages_3]");
-	var balise3 = $('<div class="form-check"></div>').prependTo(input3.parent());
-	input3.appendTo(balise3);
-    label3.appendTo(balise3);
-
-    var input4 = $('#booking_advantages_4');
-    var label4 = $("label[for=booking_advantages_4]");
-	var balise4 = $('<div class="form-check"></div>').prependTo(input4.parent());
-	input4.appendTo(balise4);
-    label4.appendTo(balise4);
-
-    var input4 = $('#booking_advantages_4');
-    var label4 = $("label[for=booking_advantages_4]");
-	var balise4 = $('<div class="form-check"></div>').prependTo(input4.parent());
-	input4.appendTo(balise4);
-    label4.appendTo(balise4);
-    
-    var input5 = $('#booking_advantages_5');
-    var label5 = $("label[for=booking_advantages_5]");
-	var balise5 = $('<div class="form-check"></div>').prependTo(input5.parent());
-	input5.appendTo(balise5);
-    label5.appendTo(balise5);
+    for (var i = 0; i < 6; i++) {
+        var input = $(`#booking_advantages_${i}`);
+        var label = $(`label[for=booking_advantages_${i}]`);
+        var balise = $('<div class="form-check"></div>').prependTo(input.parent());
+        input.appendTo(balise);
+        label.appendTo(balise);
+    }
 
 });
 </script>
