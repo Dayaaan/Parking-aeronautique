@@ -1,0 +1,24 @@
+<!-- start banner Area -->
+<section class="about-banner relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">				
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    {{ path }}				
+                </h1>	
+                <p class="text-white link-nav"><a href="{{ path('home_page')}}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ path(currentPath) }}"> {{ path }} </a></p>
+            </div>	
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+{% for label, messages in app.flashes %}
+    <div class="container my-5">
+        <div class="alert alert-{{label}}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de {{ user.fullName }}{% endblock %}
+
+{% block body %}
+<!-- start banner Area -->
+<section class="about-banner relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">				
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Mon profil				
+                </h1>	
+                <p class="text-white link-nav"><a href="{{ path('home_page')}}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ path(currentPath, {id: user.id}) }}"> {{ path }} </a></p>
+            </div>	
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+{% for label, messages in app.flashes %}
+    <div class="container my-5">
+        <div class="alert alert-{{label}}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+<div class="container my-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-3 text-center">
+            <span class="genric-btn primary circle">{{ user.bookings | length }} réservations</span>
+        </div>
+        <div class="col-9">
+            <h1>{{user.fullName}}</h1>
+            {% if user is same as (app.user) %}
+                <div class="mt-3">
+                    <a href="{{ path('profile')}}" class="genric-btn info radius mr-2 mb-2">Modifier mes informations</a>
+                    <a href="{{path('password')}}" class="genric-btn info radius mb-2">Modifier mon mot de passe</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+    <h2 class="my-5">Vos réservations</h2>
+    {% if user.bookings | length > 0 %}
+        <div class="row">
+            {% for booking in user.bookings %}
+                    <div class="col-md-4">
+                        <div class="card bg-light mb-3">
+                            <div class="card-header text-center">
+                                <strong>#{{ loop.index }}</strong> - <span>{% if not booking.status %} En attente de paiement {% else %} Payé {% endif %}</span><br>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    Réservation n° {{ booking.id }}
+                                </h4>
+                                <p class="card-text">
+                                    Réservation {{ booking.type }}
+                                </p>
+                                <p class="card-text">
+                                    Date et l'heure d'arrivée : {{ booking.startDate | date('d/m/Y H:i') }}
+                                </p>
+                                <p class="card-text">
+                                    Date et l'heure de départ : {{ booking.endDate | date('d/m/Y H:i') }}
+                                </p>
+                                <p class="card-text">
+                                    Choix du parking : {{ booking.parking }}
+                                </p> 
+                                <p class="card-text">
+                                    Marque : {{ booking.marque }}
+                                </p>
+                                <p class="card-text">
+                                    Modele : {{ booking.modele }}
+                                </p>
+                                <p class="card-text">
+                                    Plaque d'immatriculation : {{ booking.plaque }}
+                                </p>
+                                <p class="card-text">
+                                    Destination vol : {{ booking.destination }}
+                                </p>
+                                <p class="card-text">
+                                    Numero de vol Aller : {{ booking.numberVolAller }}
+                                </p>
+                                <p class="card-text">
+                                    Numero de vol Retour : {{ booking.numberVolRetour }}
+                                </p> 
+                                <p class="card-text">
+                                    Options suplémentaires : {% if booking.advantages is empty %} Aucune option {% endif %} {% for advantage in booking.advantages %} {{ advantage.name }} {% if not loop.last %},{% endif %} {% endfor %}
+                                </p>  
+                                <p class="card-text">
+                                    Nombre de jours : {{ booking.getDuration() }}
+                                </p>  
+                                <p class="card-text">
+                                    Montant : {{ booking.amount }} &euro;
+                                </p>                             
+                                {% if not booking.status %}
+                                <a href="{{ path('booking_edit', {id: booking.id})}}" class="genric-btn info radius">Modifier la réservation</a>
+                                {% endif %}
+                                
+
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+            <p>
+                <strong>Vous n'a pas encore de réservation sur le site</strong>
+            </p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

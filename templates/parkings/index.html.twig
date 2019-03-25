@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ParkingController!{% endblock %}
+
+{% block body %}
+{{ navigation.display() }}
+
+<!-- Start insurence-one Area -->
+<section class="insurence-one-area section-gap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 insurence-left">
+                <img class="img-fluid img-one" src="img/interieur.jpg" alt="parking interieur couvert">
+            </div>
+            <div class="col-lg-6 insurence-right">
+                <h6 class="text-uppercase">Ce que vous devez savoir</h6>
+                <h1>Parking Clos Couvert et Sécurisé </h1>
+                <p>
+                    Le Parking de l'Aéronautique, situé à 3 minutes de l'aéroport Nantes Atlantique, vous propose un stationnement sécurisé en intérieur et une multitude de services pour vous et votre voiture (Nettoyage Intérieur, Extérieur…). 
+                </p>
+                <div class="list-wrap">
+                    <ul>
+                        <li>2 000 m2 de parc couvert .</li>
+                        <li>1 site entièrement clos et vidéo-surveillé.</li>
+                        <li>Votre véhicule sera pris en charge après un état des lieux numérique.</li>
+                        <li>Notre équipe vous accueille 7j/7 24h/24 sur rendez-vous après votre réservation en ligne.</li>
+                    </ul>
+                </div>
+                <a href="{{ path('home_page') }}" class="primary-btn text-uppercase">Je réserve</a>
+            </div>
+        </div>
+    </div>	
+</section>
+<!-- End insurence-one Area -->
+<!-- Start insurence-two Area -->
+<section class="insurence-two-area pb-120">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 insurence-left">
+                <h6 class="text-uppercase">Ce que vous devez savoir</h6>
+                <h1>Parking extérieur et Sécurisé</h1>
+                <p>
+                    Le Parking de l'Aéronautique, situé à 3 minutes de l'aéroport Nantes Atlantique, vous propose un stationnement sécurisé en extérieur et une multitude de services pour vous et votre voiture (Nettoyage Intérieur, Extérieur…). 
+                </p>
+                <div class="list-wrap">
+                    <ul>
+                        <li>Votre véhicule sera stationné en toute sécurité pendant votre voyage. </li>
+                        <li>Notre équipe vous accueille 7j/7 24h/24 sur rendez-vous après votre réservation en ligne.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 insurence-right">
+                <img class="img-fluid img-two" src="img/exterieur.jpg" alt="parking exterieur">
+            </div>
+            <a href="{{ path('home_page') }}" class="primary-btn text-uppercase">Je réserve</a>						
+        </div>
+    </div>	
+</section>
+<!-- End insurence-two Area -->
+<!-- Start insurence-one Area -->
+<section class="insurence-one-area section-gap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 insurence-left">
+                <img class="img-fluid img-one" src="img/roue.jpg" alt="parking interieur couvert">
+            </div>
+            <div class="col-lg-6 insurence-right">
+                <h6 class="text-uppercase">Ce que vous devez savoir</h6>
+                <h1>Parking 2 roues et Sécurisé</h1>
+                <p>
+                    Vous circulez en moto ou en scooter ? Sachez que Parking privé Prest Impec accueille tous les 2 roues motorisés.
+                    Nous proposons de stationner votre 2 roues dans l'un de nos 3 parcs couverts clos et sécurisés. 
+                </p>
+                <div class="list-wrap">
+                    <ul>
+                        <li>2 000 m2 de parc couvert entièrement clos et vidéo-surveillé.</li>
+                        <li>Votre 2 roues sera stationné en toute sécurité après un état des lieux numérique.</li>
+                        <li>Notre équipe vous accueille 7j/7 24h/24 sur rendez-vous après votre réservation en ligne. </li>
+                    </ul>
+                </div>
+                <a href="{{ path('home_page') }}" class="primary-btn text-uppercase">Je réserve</a>
+            </div>
+        </div>
+    </div>	
+</section>
+<!-- End insurence-one Area -->
+{% endblock %}

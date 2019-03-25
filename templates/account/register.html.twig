@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Inscription ! {% endblock title %}
+{% block body %}
+{{ navigation.display() }}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="bg-light py-3 px-3">
+                <h1>Création du compte</h1>
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        <label for="firstName">{{ form_label(form.firstName) }}</label>
+                        {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.firstName, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.lastName) }}</label>
+                        {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.lastName, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{{ form_label(form.email) }}</label>
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.email, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">{{ form_label(form.hash) }}</label>
+                        {{ form_widget(form.hash, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.hash, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">{{ form_label(form.passwordConfirm) }}</label>
+                        {{ form_widget(form.passwordConfirm, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.passwordConfirm, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <em>* Les champs avec astérisque sont facultatifs </em>           
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bg-light py-3 px-3">
+                <h1>Information personnelle</h1>
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.organisation) }}</label>
+                        {{ form_widget(form.organisation, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.organisation, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.adress) }}</label>
+                        {{ form_widget(form.adress, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.adress, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.city) }}</label>
+                        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.city, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.zipcode) }}</label>
+                        {{ form_widget(form.zipcode, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.zipcode, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.pays) }}</label>
+                        {{ form_widget(form.pays, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.pays, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.phone1) }}</label>
+                        {{ form_widget(form.phone1, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.phone1, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>       
+                    <div class="form-group">
+                        <label for="lastName">{{ form_label(form.phone2) }}</label>
+                        {{ form_widget(form.phone2, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.phone2, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <em>* Les champs avec astérisque sont facultatifs </em>           
+                    <div class="form-group my-4">
+                        <button type="submit" class="primary-btn text-uppercase">S'enregistrer !</button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

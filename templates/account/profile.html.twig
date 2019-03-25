@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de votre profil{% endblock %}
+
+{% block body %}
+{{ navigation.display() }}
+    <div class="container my-5">
+        <h1 class="my-5">Modification du Profil</h1>
+        {{ form_start(form) }}
+            <div class="form-group">
+                <label for="text">Votre nom</label>
+                {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                <div class="text-danger">
+                {{ form_errors(form.lastName, {'attr': {'class': 'text-danger'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="text">Votre prénom</label>
+                {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
+                <div class="text-danger">
+                {{ form_errors(form.firstName, {'attr': {'class': 'text-danger'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Votre email</label>
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                <div class="text-danger">
+                {{ form_errors(form.email, {'attr': {'class': 'text-danger'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="primary-btn text-uppercase">Modifier les changements !</button>
+            </div>
+        {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<!-- start banner Area -->
+<section class="about-banner relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">				
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Réservation				
+                </h1>	
+                <p class="text-white link-nav"><a href="{{ path('home_page')}}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ path(currentPath, {id: booking.id}) }}"> {{ path }} </a></p>
+            </div>	
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+{% for label, messages in app.flashes %}
+    <div class="container my-5">
+        <div class="alert alert-{{label}}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+<div class="container">
+    <h1 class="my-5">Votre réservation n°{{booking.id}}</h1>
+    <div class="row">
+        <div class="col">
+            <div class="card bg-light">
+                {{ form_start(form) }}
+                <div class="card-header">
+                    <h4>Modification de la réservation</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Date et l'heure d'arrivée : {{ booking.startDate | date('d/m/Y H:i') }}
+                    </p>
+                    <p class="card-text">
+                        Date et l'heure de départ : {{ booking.endDate | date('d/m/Y H:i') }}
+                    </p>  
+                    <div class="formfield-select--container my-4">
+                        {{ form_widget(form.parking) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Marque</label>
+                        {{ form_widget(form.marque, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.marque, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Modele</label>
+                        {{ form_widget(form.modele, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.modele, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Plaque d'immatriculation</label>
+                        {{ form_widget(form.plaque, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.plaque, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Destination</label>
+                        {{ form_widget(form.destination, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.destination, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Numero de vol aller</label>
+                        {{ form_widget(form.numberVolAller, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.numberVolAller, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Numero de vol retour</label>
+                        {{ form_widget(form.numberVolRetour, {'attr': {'class': 'form-control'}}) }}
+                        <div class="text-danger">
+                        {{ form_errors(form.numberVolRetour, {'attr': {'class': 'text-danger'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <div class="form-check">
+                            {{ form_widget(form.advantages)}}
+                        </div>
+                    </div>	                  
+                    <button type="submit" class="btn btn-primary">
+                        Enregistrer les modifications
+                    </button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+
+	var input = $('#booking_edit_advantages_1');
+    var label = $("label[for=booking_edit_advantages_1]");
+	var balise = $('<div class="form-check"></div>').prependTo(input.parent());
+	input.appendTo(balise);
+    label.appendTo(balise);
+
+    var input2 = $('#booking_edit_advantages_2');
+    var label2 = $("label[for=booking_edit_advantages_2]");
+	var balise2 = $('<div class="form-check"></div>').prependTo(input2.parent());
+	input2.appendTo(balise2);
+    label2.appendTo(balise2);
+
+    var input3 = $('#booking_edit_advantages_3');
+    var label3 = $("label[for=booking_edit_advantages_3]");
+	var balise3 = $('<div class="form-check"></div>').prependTo(input3.parent());
+	input3.appendTo(balise3);
+    label3.appendTo(balise3);
+
+    var input4 = $('#booking_edit_advantages_4');
+    var label4 = $("label[for=booking_edit_advantages_4]");
+	var balise4 = $('<div class="form-check"></div>').prependTo(input4.parent());
+	input4.appendTo(balise4);
+    label4.appendTo(balise4);
+
+    var input4 = $('#booking_edit_advantages_4');
+    var label4 = $("label[for=booking_edit_advantages_4]");
+	var balise4 = $('<div class="form-check"></div>').prependTo(input4.parent());
+	input4.appendTo(balise4);
+    label4.appendTo(balise4);
+    
+    var input5 = $('#booking_edit_advantages_5');
+    var label5 = $("label[for=booking_edit_advantages_5]");
+	var balise5 = $('<div class="form-check"></div>').prependTo(input5.parent());
+	input5.appendTo(balise5);
+    label5.appendTo(balise5);
+
+});
+</script>
+{% endblock %}

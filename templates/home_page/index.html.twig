@@ -1,0 +1,399 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil!{% endblock %}
+{% form_theme form _self %}
+{% block body %}
+<!-- start banner Area -->
+<section class="banner-area relative">
+    <div class="overlay overlay-bg"></div>				
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-between">
+            <div class="col-lg-6 col-md-6 banner-left">
+                <h6 class="text-white">Nouveau parkings privé</h6>
+                <h1 class="text-white">Parking de l'Aéronautique </h1>
+                <p class="text-white">
+                    Nous disposons de 3 parcs privés entièrement COUVERTs et sécurisés, proches de l’aéroport de nantes-atlantique.
+                    N'attendez plus pour nous confier votre véhicule !
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 banner-right">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                    <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true">Je réserve mon parking !</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                    {{form_start(form)}}
+                    <div class="form-wrap">
+                        <div class="booking_parking">{{ form_label(form.parking) }} :</div>
+                        <div class="formfield-select--container">
+                            {{ form_widget(form.parking) }}
+                        </div>
+                        <div class="booking_parking">{{ form_label(form.startDate) }}</div>
+                        								
+                        {{ form_widget(form.startDate) }}
+                        <div class="text-danger">
+                            {{ form_errors(form.startDate) }}
+                        </div>
+                        <div class="booking_parking">{{ form_label(form.endDate) }}</div>
+                        {{ form_widget(form.endDate) }}
+                        <div class="text-danger">
+                            {{ form_errors(form.endDate) }}
+                        </div>
+                        <div class="form-control">
+                            <div class="form-check">
+                                {{ form_widget(form.advantages)}}
+                            </div>
+                        </div>	
+                                                      			
+                        <button type="submit" class="primary-btn text-uppercase">Je réserve !</button>
+                    <div>								
+                    {{form_end(form)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>					
+</section>
+<!-- End banner Area -->
+
+<!-- Start popular-destination Area -->
+<section class="popular-destination-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Nos parkings</h1>
+                    <p>Découvrez tous les services de votre parking privé.</p>
+                </div>
+            </div>
+        </div>						
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-destination relative">
+                    <div class="thumb relative">
+                        <div class="overlay overlay-bg"></div>
+                        <img class="img-fluid" src="img/interieur.jpg" alt="parking interieur">
+                    </div>
+                    <div class="desc">	
+                        <a href="{{ path('parking_interieur') }}" class="price-btn">see more</a>			
+                        <h4>Parking</h4>
+                        <p>Couvert Clos</p>			
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-destination relative">
+                    <div class="thumb relative">
+                        <div class="overlay overlay-bg"></div>
+                        <img class="img-fluid" src="img/exterieur.jpg" alt="parking exterieur">
+                    </div>
+                    <div class="desc">	
+                        <a href="{{ path('parking_exterieur') }}" class="price-btn">see more</a>			
+                        <h4>Parking</h4>
+                        <p>Exterieur</p>			
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-destination relative">
+                    <div class="thumb relative">
+                        <div class="overlay overlay-bg"></div>
+                        <img class="img-fluid" src="img/roue.jpg" alt=" parking deux roues">
+                    </div>
+                    <div class="desc">	
+                        <a href="{{ path('parking_deux_roues') }}" class="price-btn">see more</a>			
+                        <h4>Parking</h4>
+                        <p>Deux roues</p>			
+                    </div>
+                </div>
+            </div>												
+        </div>
+    </div>	
+</section>
+<!-- End popular-destination Area -->
+
+
+<!-- Start price Area -->
+<section class="price-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Nos tarifs</h1>
+                    <p>Parking à proximité des pistes de l’aéroport de nantes atlantique.</p>
+                </div>
+            </div>
+        </div>						
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-price">
+                    <h4>Parking intérieur</h4>
+                    <ul class="price-list">
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>1 jour</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>2 jours</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>3 jours</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>4 jours</span>
+                            <a href="#" class="price-btn">39 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>5 jours</span>
+                            <a href="#" class="price-btn">39 &euro;</a>
+                        </li>	
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>7 jours</span>
+                            <a href="#" class="price-btn">74 &euro;</a>
+                        </li>														
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-price">
+                    <h4>Parking extérieur</h4>
+                    <ul class="price-list">
+                                                <li class="d-flex justify-content-between align-items-center">
+                            <span>1 jour</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>2 jours</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>3 jours</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>4 jours</span>
+                            <a href="#" class="price-btn">39 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>5 jours</span>
+                            <a href="#" class="price-btn">39 &euro;</a>
+                        </li>	
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>7 jours</span>
+                            <a href="#" class="price-btn">74 &euro;</a>
+                        </li>												
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-price">
+                    <h4>Parking Deux roues</h4>
+                    <ul class="price-list">
+                                                <li class="d-flex justify-content-between align-items-center">
+                            <span>1 jour</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>2 jours</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>3 jours</span>
+                            <a href="#" class="price-btn">24 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>4 jours</span>
+                            <a href="#" class="price-btn">39 &euro;</a>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>5 jours</span>
+                            <a href="#" class="price-btn">39 &euro;</a>
+                        </li>	
+                        <li class="d-flex justify-content-between align-items-center">
+                            <span>7 jours</span>
+                            <a href="#" class="price-btn">74 &euro;</a>
+                        </li>											
+                    </ul>
+                </div>
+            </div>												
+        </div>
+    </div>	
+</section>
+<!-- End price Area -->
+
+
+<!-- Start testimonial Area -->
+<section class="testimonial-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Les avis de nos clients</h1>
+                    <p>Avis des nos clients </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-testimonial">
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="img/elements/user1.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+                        </p>
+                        <h4>Harriet Maxwell</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>				
+                        </div>	
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="img/elements/user2.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+                        </p>
+                        <h4>Carolyn Craig</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>			
+                        </div>	
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="img/elements/user1.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+                        </p>
+                        <h4>Harriet Maxwell</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>				
+                        </div>	
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="img/elements/user2.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+                        </p>
+                        <h4>Carolyn Craig</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>			
+                        </div>	
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="img/elements/user1.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+                        </p>
+                        <h4>Harriet Maxwell</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>				
+                        </div>	
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="img/elements/user2.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
+                        </p>
+                        <h4>Carolyn Craig</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>			
+                        </div>	
+                    </div>
+                </div>		                    		                    
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End testimonial Area -->		
+{% endblock %}
+
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+
+	var input = $('#booking_advantages_1');
+    var label = $("label[for=booking_advantages_1]");
+	var balise = $('<div class="form-check"></div>').prependTo(input.parent());
+	input.appendTo(balise);
+    label.appendTo(balise);
+
+    var input2 = $('#booking_advantages_2');
+    var label2 = $("label[for=booking_advantages_2]");
+	var balise2 = $('<div class="form-check"></div>').prependTo(input2.parent());
+	input2.appendTo(balise2);
+    label2.appendTo(balise2);
+
+    var input3 = $('#booking_advantages_3');
+    var label3 = $("label[for=booking_advantages_3]");
+	var balise3 = $('<div class="form-check"></div>').prependTo(input3.parent());
+	input3.appendTo(balise3);
+    label3.appendTo(balise3);
+
+    var input4 = $('#booking_advantages_4');
+    var label4 = $("label[for=booking_advantages_4]");
+	var balise4 = $('<div class="form-check"></div>').prependTo(input4.parent());
+	input4.appendTo(balise4);
+    label4.appendTo(balise4);
+
+    var input4 = $('#booking_advantages_4');
+    var label4 = $("label[for=booking_advantages_4]");
+	var balise4 = $('<div class="form-check"></div>').prependTo(input4.parent());
+	input4.appendTo(balise4);
+    label4.appendTo(balise4);
+    
+    var input5 = $('#booking_advantages_5');
+    var label5 = $("label[for=booking_advantages_5]");
+	var balise5 = $('<div class="form-check"></div>').prependTo(input5.parent());
+	input5.appendTo(balise5);
+    label5.appendTo(balise5);
+
+});
+</script>
+{% endblock %}
