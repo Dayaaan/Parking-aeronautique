@@ -7,7 +7,17 @@
                 <h1 class="text-white">
                     {{ path }}				
                 </h1>	
-                <p class="text-white link-nav"><a href="{{ path('home_page')}}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ path(currentPath) }}"> {{ path }} </a></p>
+                <p class="text-white link-nav"><a href="{{ path('home_page')}}">Home </a>  <span class="lnr lnr-arrow-right"></span>
+                    {% if (app.user) %}
+                        <a 
+                            href="{{ path(currentPath, {id: user.id}) }}"> {{ path }} 
+                        </a>
+                    {% else %}
+                        <a 
+                            href="{{ path(currentPath) }}"> {{ path }} 
+                        </a>
+                    {% endif %}
+                </p>
             </div>	
         </div>
     </div>
